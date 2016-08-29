@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Agenda item for the non-existent meeting. Come up with a better name -->
+    <title>React RSS Reader</title>
+    <style media="screen">
+      /*
+        I still need to sort out how we're going to
+        handle CSS. We'll have the usual problems of
+        which libraries etc to use, but a bigger
+        problem in the future will be styling HTML
+        content that we pull from a post.
+
+        As for right now, I'm inlining because:
+          - Performance
+          - Laziness.
+
+        Any day I can make an app faster while
+        being lazy, is a good day imo.
+      */
+
+      .appShell {
+        font-family: 'Merriweather', serif;
+        display: flex;
+        flex-direction: column;
+        width: 85vw;
+        align-items: center;
+        margin: 2rem auto;
+        color: rgba(0, 0, 0, .8);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.6;
+      }
+
+      h1, .textLevel--1 { font-size: 2em; }
+      h2, .textLevel--2 { font-size: 1.7411em; }
+      h3, .textLevel--3 { font-size: 1.5157em; }
+      h4, .textLevel--4 { font-size: 1.3195em; }
+      h5, .textLevel--5 { font-size: 1.1487em; }
+      p, .textLevel--p { font-size: 1em; }
+      small, .textLevel--small { font-size: .8706em; }
+
+      h1, h2, h3, h4,
+      .textLevel--1, .textLevel--2, .textLevel--3, .textLevel--4 {
+        margin-bottom: .5rem;
+        font-family: -apple-system, Helvetica, Arial, sans-serif;
+      }
+
+      p, .textLevel--p {
+        margin-top: 0;
+        margin-bottom: .125rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='base'>
+      <!-- This is where our React app will render to. -->
+    </div>
+    <!--
+      We use the percentage sign tag syntax (< %= and < % without the spaces) as a
+      placeholder that the htmlWebpackPlugin will evaluate.
+
+      This following script tag allows us to change the name of the bundled JS file
+      in different environments, as specified in "app.config.js".
+
+      This will allow us to force cached clients to update, by changing the name to
+      include a hash of the contents for example, so whenever we push a new version,
+      users will download the new version, instead of keeping the old one until the
+      user clears their cache.
+    -->
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js %>"></script>
+    <!--
+      We use the percentage sign tag syntax (< %= and < % without the spaces) as a
+      placeholder that the htmlWebpackPlugin will evaluate.
+
+      The final script tag + conditional checks to see whether we've set any global
+      variables in the "app.config.js" file, here we can set the name of the bundled
+      JavaScript file, and also point to a different API endpoint, which will come up
+      when we have a backend set up.
+    -->
+    <% if (htmlWebpackPlugin.options.window) { %>
+    <script>
+      <% for (var varName in htmlWebpackPlugin.options.window) { %>
+        window['<%=varName%>'] = <%= JSON.stringify(htmlWebpackPlugin.options.window[varName]) %>;
+      <% } %>
+    </script>
+    <% } %>
+  </body>
+</html>
