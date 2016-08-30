@@ -1,5 +1,9 @@
 # rss-reader
 
+[![Build Status](https://travis-ci.org/lewiscowper/rss-reader.svg?branch=master)](https://travis-ci.org/lewiscowper/rss-reader)
+
+[![Coverage Status](https://coveralls.io/repos/github/lewiscowper/rss-reader/badge.svg?branch=master)](https://coveralls.io/github/lewiscowper/rss-reader?branch=master)
+
 ## Description
 
 This project aims to implement an RSS reader. This is being done as a learning project, and an experiment in open source project management.
