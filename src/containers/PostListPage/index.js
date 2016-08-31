@@ -1,3 +1,14 @@
+/*
+  This file is a container page that can
+  care about data fetching to get the feeds,
+  and can pass the state changes down to
+  the appropriate component as properties,
+  which helps force the separation between
+  containers and components.
+
+  Containers should care about state,
+  Components should care about properties.
+*/
 
 /*
   We're using JSX, so we need the main React

@@ -1,5 +1,7 @@
 /*
-  This file
+  This file is the main "app shell", in
+  other words the navigation/header/global
+  UI that is always present inside the app.
 */
 
 /*
