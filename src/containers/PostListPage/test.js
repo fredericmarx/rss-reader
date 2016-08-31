@@ -39,7 +39,7 @@ import PostList from '../../components/PostList';
   a PostList component, we need to provide a testFeeds
   prop to PostList, let's use the one from the fixtures
 */
-import testFeeds from '../../globals/fixtures/testFeeds';
+import testFeeds from '../../constants/fixtures/testFeeds';
 
 /*
   Now let's try to render the PostListPage.

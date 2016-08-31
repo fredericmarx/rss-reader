@@ -35,7 +35,7 @@ import PostList from './index';
   Changing the structure in one place is easier than
   changing it in many!
 */
-import testFeeds from '../../globals/fixtures/testFeeds';
+import testFeeds from '../../constants/fixtures/testFeeds';
 
 /*
   ava uses a similar-ish API to tape/node-tap,

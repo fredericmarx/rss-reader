@@ -32,7 +32,7 @@ import Post from './index';
   so that we can test rendering, and update our fixtures
   from one place instead of many.
 */
-import testPost from '../../globals/fixtures/testPost';
+import testPost from '../../constants/fixtures/testPost';
 
 /*
   Here we would like to check that the correct markup

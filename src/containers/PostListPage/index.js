@@ -37,7 +37,7 @@ import PostList from '../../components/PostList';
   we can start fetching and storing feeds, and
   get rid of this fixture import.
 */
-import testFeeds from '../../globals/fixtures/testFeeds';
+import testFeeds from '../../constants/fixtures/testFeeds';
 
 /*
   We declare PostListPage as a class, rather than
