@@ -77,7 +77,14 @@ import React, { PropTypes, Component } from 'react';
   actions that can change the user's state,
   such as logging out.
 */
+
+import { connect } from 'react-redux'; // UNDOCUMENTED
+import { getUser } from './actions'; // UNDOCUMENTED
+
 class AppShell extends Component {
+  componentWillMount () {
+    this.props.dispatch(getUser('2'));
+  }
 
   /*
     Here we create a render method, that React
@@ -95,7 +102,7 @@ class AppShell extends Component {
       opportunity to stop typing this.props
       is quite nice (to me anyway).
     */
-    const { children } = this.props;
+    const { children, user } = this.props;
 
     /*
       Here, in the same way that we take advantage
@@ -105,6 +112,9 @@ class AppShell extends Component {
     */
     return (
       <div className='appShell'>
+        <header>
+          {user ? <p>{`${user.id} — ${user.name} <${user.emailAddress}>`}</p> : <p>Hello</p>}
+        </header>
         {children}
       </div>
     );
@@ -124,10 +134,18 @@ class AppShell extends Component {
   AppShell component.
 */
 AppShell.propTypes = ({
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  user: PropTypes.object
 });
 
 /*
   Export the AppShell component so we can render it!
 */
-export default AppShell;
+
+const mapStateToProps = (state) => ({
+  user: state.app.user,
+  loading: state.app.isFetchingUser
+});
+
+export default connect(mapStateToProps)(AppShell);

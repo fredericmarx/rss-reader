@@ -25,14 +25,7 @@ import React from 'react';
 */
 import { render } from 'react-dom';
 
-/*
-  Our "Routes" component controls what we
-  render and where, so this index.js file
-  doesn't need to care too much about
-  anything but the Routes component,
-  which is quite nice.
-*/
-import Routes from './components/Routes';
+import Store from './store';
 
 /*
   Here we call the render function we
@@ -45,7 +38,8 @@ import Routes from './components/Routes';
   Reference:
     render(ReactComponent, DOM-target);
 */
+
 render(
-  <Routes />,
+  <Store />,
   document.getElementById('base')
 );

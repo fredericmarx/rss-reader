@@ -75,7 +75,7 @@ import testFeeds from '../../constants/fixtures/testFeeds';
   it should only focus on rendering props, no
   state.
 
-  However, PostListPage is a "state-ful" class
+  However, PostListPage is a "state-full" class
   declaration.
 
   This isn't something to do lightly, and if
